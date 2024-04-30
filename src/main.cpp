@@ -83,17 +83,11 @@ int main(int argc, char** argv)
 
     for(i=0;i<16;i++) FPS[i]=0.0;
 
-    if (argc < 2) {
-        fprintf(stderr,"Usage: %s [imagepath] [model (optional)]\n", argv[0]);
+    if (argc < 3) {
+        fprintf(stderr,"Usage: %s [imagepath] [model]\n", argv[0]);
         return -1;
     }
-
-    if (argc == 3) {
-        model_name = argv[2];
-    }
-    else{
-        model_name = (char*) "./model/yolov8s-seg.rknn";
-    }
+    model_name = argv[2];
 
     rknn_app_context_t rknn_app_ctx;
     memset(&rknn_app_ctx, 0, sizeof(rknn_app_context_t));
